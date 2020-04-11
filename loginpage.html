@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head><title>UMS Login</title></head>
+   <body>
+       <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+        var attempt = 3;    //Variable to count number of attempts
+         
+
+            //Below function Executes when the user clicks login button
+            function validate() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+
+                if (username == "11901234" && password == "Lpuums1") {
+                    alert("Login successfully");
+                    window.location = "ums.html";   //redirecting to home page
+                    return false;
+                }
+                else {
+                    attempt--;   //Decrementing the number of attempts by one
+                    alert("Incorrect Password !! You have left " + attempt + " attempt;");
+
+                    //Disabling fields after 3 attempts
+                    if (attempt == 0) {
+                        document.getElementById("username").disabled = true;
+                        document.getElementById("password").disabled = true;
+                        document.getElementById("submit").disabled = true;
+                        return false;
+                    }
+                }
+            }
+    </script>
+    <!--setting and fixing background image-->
+    <style>       
+        body {
+            background-image: url('backg1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+    <!--The login section-->
+        <br><br><br>
+    <div class="container">
+        <div class="main">
+            
+            <h3>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                UMS Login
+            </h3>
+            <!--Creating forms for username and password-->
+        <form id="form_id" method="POST" name="myform">
+            <strong>Username : </strong>
+            <input type="text" name="username" id="username"><br><br>
+            <strong>Password :</strong>
+            &nbsp;
+            <input type="password" name="password" id="password" /><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!--Allowing submit-->
+            <input type="button" value="Login" id="submit" onclick="validate()">
+            </form>
+            <br><br><br>
+            Note:<br>Username 11901234<br>Password Lpuums1
+       
+
+</body>
+</html>
